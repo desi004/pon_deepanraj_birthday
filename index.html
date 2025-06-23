@@ -1,7 +1,4 @@
-  
-    
-      
-        <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -15,12 +12,12 @@
       color: white;
       text-align: center;
       overflow: hidden;
-      background: linear-gradient(-45deg, #f8f8f8, #dcdcdc, #eeeeee, #cccccc);
+      background: linear-gradient(-45deg, #8b0000, #dcdcdc, #b22222, #f8f8f8);
       background-size: 400% 400%;
-      animation: silverShimmer 10s ease infinite;
+      animation: bgFlow 15s ease infinite;
     }
 
-    @keyframes silverShimmer {
+    @keyframes bgFlow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -74,7 +71,7 @@
 
     p {
       font-size: 18px;
-      color: #444;
+      color: #ffeef4;
     }
 
     #proposal {
@@ -83,7 +80,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(255, 255, 255, 0.95);
       color: #ff007f;
       font-size: 26px;
       padding: 30px;
@@ -98,14 +95,20 @@
       to { opacity: 1; }
     }
 
-    .floating-text {
+    .floating {
       position: absolute;
       color: #ff69b4;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
+      opacity: 0.5;
       animation: floatUp 12s linear infinite;
-      opacity: 0.6;
       pointer-events: none;
+    }
+
+    .emoji {
+      font-size: 24px;
+      opacity: 0.4;
+      color: pink;
     }
 
     @keyframes floatUp {
@@ -115,20 +118,24 @@
   </style>
 </head>
 <body>
-  <!-- Floating romantic words -->
-  <div class="floating-text" style="left: 10%; animation-delay: 0s;">My Baby</div>
-  <div class="floating-text" style="left: 30%; animation-delay: 3s;">Love You</div>
-  <div class="floating-text" style="left: 50%; animation-delay: 1s;">Darling</div>
-  <div class="floating-text" style="left: 70%; animation-delay: 4s;">My Baby</div>
-  <div class="floating-text" style="left: 85%; animation-delay: 2s;">Love You</div>
-  <div class="floating-text" style="left: 20%; animation-delay: 5s;">Darling</div>
+  <!-- Floating words -->
+  <div class="floating" style="left: 5%; animation-delay: 1s;">My Baby</div>
+  <div class="floating" style="left: 15%; animation-delay: 2s;">Love You</div>
+  <div class="floating" style="left: 25%; animation-delay: 3s;">Darling</div>
+  <div class="floating" style="left: 35%; animation-delay: 4s;">Sweetheart</div>
+  <div class="floating" style="left: 45%; animation-delay: 5s;">Cutie Pie</div>
+  <div class="floating" style="left: 55%; animation-delay: 6s;">Forever Mine</div>
+  <div class="floating emoji" style="left: 65%; animation-delay: 2s;">💘</div>
+  <div class="floating emoji" style="left: 75%; animation-delay: 4s;">💕</div>
+  <div class="floating emoji" style="left: 85%; animation-delay: 6s;">💖</div>
+  <div class="floating emoji" style="left: 95%; animation-delay: 3s;">❤️</div>
 
   <!-- Search Box -->
   <div id="search-box">
     <input type="text" id="search" placeholder="Type something..."/>
   </div>
 
-  <!-- Celebration -->
+  <!-- Celebration Section -->
   <div id="celebration">
     <h1>🎂 Happy Birthday Mine Boo Boo! 🎉</h1>
     <p>November 8 - You are a Meteor in our sky 🌠</p>
@@ -137,13 +144,13 @@
     <audio id="music" src="herewithme.mp3" autoplay loop></audio>
   </div>
 
-  <!-- Confetti Canvas -->
+  <!-- Confetti -->
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Proposal Pop-up -->
+  <!-- Proposal Popup -->
   <div id="proposal">💍 At last, I will marry you 💖</div>
 
-  <!-- Confetti Script -->
+  <!-- Confetti JS -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     const input = document.getElementById("search");
@@ -188,5 +195,10 @@
     }
   </script>
 </body>
-      </html>
+  </html>
+                                          
+    
+      
+        
+  
                                                            
