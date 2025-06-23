@@ -1,5 +1,7 @@
   
-    <!DOCTYPE html>
+    
+      
+        <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,12 +15,12 @@
       color: white;
       text-align: center;
       overflow: hidden;
-      background: linear-gradient(135deg, #dcdcdc, #f8f8f8, #e6e6e6);
+      background: linear-gradient(-45deg, #f8f8f8, #dcdcdc, #eeeeee, #cccccc);
       background-size: 400% 400%;
-      animation: silverShine 8s ease infinite;
+      animation: silverShimmer 10s ease infinite;
     }
 
-    @keyframes silverShine {
+    @keyframes silverShimmer {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -96,37 +98,30 @@
       to { opacity: 1; }
     }
 
-    /* Floating romantic words */
-    .floating-word {
-      position: fixed;
-      font-size: 18px;
+    .floating-text {
+      position: absolute;
       color: #ff69b4;
-      opacity: 0.5;
-      animation: floatText 10s linear infinite;
-      z-index: 0;
+      font-weight: bold;
+      font-size: 16px;
+      animation: floatUp 12s linear infinite;
+      opacity: 0.6;
       pointer-events: none;
     }
 
-    @keyframes floatText {
-      0% {
-        transform: translateY(100vh) translateX(0);
-        opacity: 0.3;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(20px);
-        opacity: 0.8;
-      }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh); opacity: 0.2; }
+      100% { transform: translateY(-120vh); opacity: 0.8; }
     }
   </style>
 </head>
 <body>
-  <!-- Floating love words -->
-  <div class="floating-word" style="left:10%; animation-delay: 0s;">My Baby</div>
-  <div class="floating-word" style="left:25%; animation-delay: 3s;">Love You</div>
-  <div class="floating-word" style="left:40%; animation-delay: 6s;">Darling</div>
-  <div class="floating-word" style="left:55%; animation-delay: 1s;">My Baby</div>
-  <div class="floating-word" style="left:70%; animation-delay: 4s;">Love You</div>
-  <div class="floating-word" style="left:85%; animation-delay: 2s;">Darling</div>
+  <!-- Floating romantic words -->
+  <div class="floating-text" style="left: 10%; animation-delay: 0s;">My Baby</div>
+  <div class="floating-text" style="left: 30%; animation-delay: 3s;">Love You</div>
+  <div class="floating-text" style="left: 50%; animation-delay: 1s;">Darling</div>
+  <div class="floating-text" style="left: 70%; animation-delay: 4s;">My Baby</div>
+  <div class="floating-text" style="left: 85%; animation-delay: 2s;">Love You</div>
+  <div class="floating-text" style="left: 20%; animation-delay: 5s;">Darling</div>
 
   <!-- Search Box -->
   <div id="search-box">
@@ -164,7 +159,7 @@
 
         setTimeout(() => {
           proposal.style.display = "block";
-        }, 5000); // show proposal after 5 seconds
+        }, 5000);
       }
     });
 
@@ -193,5 +188,5 @@
     }
   </script>
 </body>
-  </html>
-  
+      </html>
+                                                           
