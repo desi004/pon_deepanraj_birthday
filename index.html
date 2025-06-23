@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -76,16 +76,15 @@
       color: #ffe4fa;
     }
 
-    /* Proposal Popup */
     #proposal {
       display: none;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.97);
       color: #ff007f;
-      font-size: 24px;
+      font-size: 26px;
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 0 25px #ff99cc;
@@ -114,7 +113,7 @@
   <!-- Confetti Canvas -->
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Proposal Popup -->
+  <!-- Proposal Pop-up -->
   <div id="proposal">💍 At last, I will marry you 💖</div>
 
   <!-- Confetti Script -->
@@ -131,10 +130,9 @@
         confettiEffect();
         document.getElementById("music").play();
 
-        // Show proposal after 5 seconds
         setTimeout(() => {
           proposal.style.display = "block";
-        }, 5000);
+        }, 5000); // show proposal after 5 seconds
       }
     });
 
@@ -163,5 +161,5 @@
     }
   </script>
 </body>
-    </html>
+  </html>
   
