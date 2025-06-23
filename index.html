@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -115,10 +115,25 @@
       0% { transform: translateY(100vh); opacity: 0.2; }
       100% { transform: translateY(-120vh); opacity: 0.8; }
     }
+
+    /* 💌 Love letter style */
+    .love-letter {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #ffcce6;
+      font-style: italic;
+      animation: fadeInLove 3s ease-in forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInLove {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-  <!-- Floating words -->
+  <!-- Floating romantic words -->
   <div class="floating" style="left: 5%; animation-delay: 1s;">My Baby</div>
   <div class="floating" style="left: 15%; animation-delay: 2s;">Love You</div>
   <div class="floating" style="left: 25%; animation-delay: 3s;">Darling</div>
@@ -135,19 +150,28 @@
     <input type="text" id="search" placeholder="Type something..."/>
   </div>
 
-  <!-- Celebration Section -->
+  <!-- Celebration -->
   <div id="celebration">
     <h1>🎂 Happy Birthday Mine Boo Boo! 🎉</h1>
     <p>November 8 - You are a Meteor in our sky 🌠</p>
     <img class="photo" src="Snapchat-723283372.jpg" alt="Mine Boo Boo" />
     <img class="photo" src="Screenshot_20250623-111030_Calculator.jpg" alt="Extra Surprise" />
+
+    <!-- 💌 Love Letter Below Photos -->
+    <div class="love-letter">
+      “In every heartbeat, it’s you.<br>
+      In every wish, it’s your name.<br>
+      You are not just a moment — you’re my melody.<br>
+      Forever is mine, because you are mine boo boo.” 💘
+    </div>
+
     <audio id="music" src="herewithme.mp3" autoplay loop></audio>
   </div>
 
-  <!-- Confetti -->
+  <!-- Confetti Canvas -->
   <canvas id="confetti-canvas"></canvas>
 
-  <!-- Proposal Popup -->
+  <!-- Proposal Pop-up -->
   <div id="proposal">💍 At last, I will marry you 💖</div>
 
   <!-- Confetti JS -->
@@ -195,10 +219,4 @@
     }
   </script>
 </body>
-  </html>
-                                          
-    
-      
-        
-  
-                                                           
+</html>
