@@ -1,96 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mine Boo Boo Surprise</title>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(#0b0c2a, #1f1e42);
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
-  overflow: hidden;
-}
-#search-box {
-  margin-top: 100px;
-}
-input {
-  padding: 10px;
-  font-size: 20px;
-  width: 300px;
-  border-radius: 5px;
-  border: none;
-}
-#celebration {
-  display: none;
-  margin-top: 50px;
-}
-#photo {
-  width: 200px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px gold;
-}
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mine Boo Boo Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      background: #0f0c29;
+      background-image: radial-gradient(white 1px, transparent 1px),
+                        radial-gradient(white 1px, transparent 1px);
+      background-size: 3px 3px;
+      background-position: 0 0, 1.5px 1.5px;
+      animation: sparkle 6s linear infinite;
+    }
+
+    @keyframes sparkle {
+      0% { background-position: 0 0, 1.5px 1.5px; }
+      100% { background-position: 100px 100px, 101.5px 101.5px; }
+    }
+
+    #search-box {
+      margin-top: 100px;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 20px;
+      width: 300px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+    }
+
+    #celebration {
+      display: none;
+      margin-top: 50px;
+    }
+
+    .photo {
+      width: 220px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px gold;
+      margin: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ffd700;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    h1 {
+      font-size: 2em;
+      background: linear-gradient(45deg, #ff99cc, #ccffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #ffe4fa;
+    }
+
+    /* Proposal Popup */
+    #proposal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      color: #ff007f;
+      font-size: 24px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px #ff99cc;
+      z-index: 999;
+      animation: fadeIn 2s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-<div id="search-box">
-  <input type="text" id="search" placeholder="Type something..."/>
-</div>
-<div id="celebration">
-  <h1>🎂 Happy Birthday Mine Boo Boo! 🎉</h1>
-  <p>November 8 - You are a Meteor in our sky 🌠</p>
-  <img id="photo" src="Snapchat-723283372.jpg" alt="Mine Boo Boo" />
-  <img src="Screenshot_20250623-111030_Calculator.jpg" alt="Extra Surprise Photo" style="width:200px; border-radius:15px; margin-top:20px;" />
+  <div id="search-box">
+    <input type="text" id="search" placeholder="Type something..."/>
+  </div>
+  <div id="celebration">
+    <h1>🎂 Happy Birthday Mine Boo Boo! 🎉</h1>
+    <p>November 8 - You are a Meteor in our sky 🌠</p>
+    <img class="photo" src="Snapchat-723283372.jpg" alt="Mine Boo Boo" />
+    <img class="photo" src="Screenshot_20250623-111030_Calculator.jpg" alt="Extra Surprise" />
+    <audio id="music" src="herewithme.mp3" autoplay loop></audio>
+  </div>
 
-  <audio id="music" src="herewithme.mp3" autoplay loop></audio>
-</div>
-<canvas id="confetti-canvas"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-<script>
-const input = document.getElementById("search");
-const celebration = document.getElementById("celebration");
+  <!-- Confetti Canvas -->
+  <canvas id="confetti-canvas"></canvas>
 
-input.addEventListener("keypress", function(e) {
-  if (e.key === "Enter" && input.value.toLowerCase().trim() === "mine boo boo") {
-    celebration.style.display = "block";
-    input.style.display = "none";
-    confettiEffect();
-    document.getElementById("music").play();
-  }
-});
+  <!-- Proposal Popup -->
+  <div id="proposal">💍 At last, I will marry you 💖</div>
 
-function confettiEffect() {
-  const duration = 3 * 1000;
-  const end = Date.now() + duration;
+  <!-- Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const input = document.getElementById("search");
+    const celebration = document.getElementById("celebration");
+    const proposal = document.getElementById("proposal");
 
-  (function frame() {
-    confetti({
-      particleCount: 7,
-      angle: 60,
-      spread: 55,
-      origin: { x: 0 },
-    });
-    confetti({
-      particleCount: 7,
-      angle: 120,
-      spread: 55,
-      origin: { x: 1 },
+    input.addEventListener("keypress", function(e) {
+      if (e.key === "Enter" && input.value.toLowerCase().trim() === "mine boo boo") {
+        celebration.style.display = "block";
+        input.style.display = "none";
+        confettiEffect();
+        document.getElementById("music").play();
+
+        // Show proposal after 5 seconds
+        setTimeout(() => {
+          proposal.style.display = "block";
+        }, 5000);
+      }
     });
 
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
+    function confettiEffect() {
+      const duration = 3 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 7,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 },
+        });
+        confetti({
+          particleCount: 7,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 },
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
     }
-  })();
-}
-</script>
+  </script>
 </body>
-</html>
+    </html>
+  
